@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+<!--used main bc of "clutter" in layout.html-->
+{% block main %}
+
+    <h1> BUY </h1>
+    <form action="/buy" method="post">
+        <input type="text" name="symbol" placeholder="Stock Symbol">
+        <input type="text" name="shares" placeholder="Number of Shares">
+        <input type="submit">
+    </form>
+    <br><br><br><br><br>
+    <h5> Don't know what to buy? These stocks are popular at cs50 Finance!</h5>
+    <table>
+        {% for symbol in symbols %}
+            <td> {{ symbol }} </td>
+        {% endfor %}
+    </table>
+
+{% endblock %}

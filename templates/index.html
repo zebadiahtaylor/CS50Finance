@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h1><strong>Your Portfolio</strong></h1>
+    <table>
+        <tr:hover>
+            <th> Stock Symbol </th>
+            <th> Shares  </th>
+            <th> Price </th>
+            <th> Total </th>
+        </tr>
+        {% for row in rows %}
+        <tr>
+            <td> {{ row["symbol"]}} </td>
+            <td> {{ row["shares"]}} </td>
+            <td> {{ row["price"]|round(3) }}  </td>
+            <td> {{ (row["shares"] * row["price"])|round(3) }} </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td><strong>TOTAL:</strong></td><td></td><td></td>
+            <td> {{tot_share_val|round(3)}}</td>
+        </tr>
+        <tr>
+            <td><strong>CASH:</strong> </td><td></td><td></td>
+            <td title="{{cash}}"> {{ cash|round(3) }} </td>
+        </tr>
+        <tr>
+            <td><strong>GRAND TOTAL:
+            </strong> </td><td></td><td></td>
+            <td> {{ (cash + tot_share_val)|round(3) }}</td>
+        </tr>
+    </table>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+<!--used main bc of "clutter" in layout.html-->
+{% block main %}
+    <h1> GET QUOTES </h1>
+    <form action="/quote" method="post">
+        <input type="text" name="symbol" placeholder="Stock Symbol">
+        <input type="submit">
+    </form>
+{% endblock %}

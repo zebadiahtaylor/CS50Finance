@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+<!--used main bc of "clutter" in layout.html-->
+{% block main %}
+    <h1> YOUR QUOTE </h1>
+    <ul>
+        <p><strong> {{ name }} </strong></p>
+        <p><strong>  Stock Symbol: {{ symbol }} </strong></p>
+        <p><strong> Price per Share: {{ price }} </strong></p>
+    </ul>
+{% endblock %}

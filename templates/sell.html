@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <form action='/sell' method="post">
+        <select name="symbol" placeholder="Symbols">
+            <option value=None>Select What to Sell</option>
+            {% for symbol in symbols %}
+                <option value={{symbol}}>{{ symbol }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name="shares" placeholder="# of Shares to Sell">
+        <br><br>
+        <input type="submit">
+    </form>
+    <br><br><br><br><br>
+    <h5>Your current portfolio</h5>
+    <table>
+        <tr: hover>
+            <th> Stock Symbol </th>
+            <th> Shares  </th>
+            <th> Price </th>
+            <th> Average Gain/Loss </th>
+            <th> Total </th>
+            <th> Total Gain/Loss </th>
+        </tr>
+        {% for row in rows %}
+        <tr>
+            <td> {{ row["symbol"]}} </td>
+            <td> {{ row["shares"]}} </td>
+            <td> {{ row["price"]|round(3) }}</td>
+            {% set gain_loss = av_prices[loop.index0] - row["price"] %}
+            <td> {{ gain_loss|round(3) }} </td>
+            {% set total = row["shares"] * row["price"] %}
+            <td> {{ total|round(3) }} </td>
+            <td> {{ (gain_loss * row["shares"])|round(3) }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td><strong>CASH:</strong>
+            <td title="{{cash}}"> {{ cash|round(3) }} </td>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+    </table>
+{% endblock %}

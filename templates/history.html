@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h1><strong>HISTORY</strong></h1></h1>
+    <table>
+        <tr:hover>
+            <td> Bought/Sold </td>
+            <td> Symbol </td>
+            <td> Shares </td>
+            <td> Price </td>
+            <td> Date </td>
+            <td> Time </td>
+        </tr>
+        {% for row in rows %}
+        <tr>
+            {% if row["shares"] > 0 %}
+                <td> BOUGHT </td>
+            {% else %}
+                <td> SOLD </td>
+            {% endif %}
+            <td> {{ row["symbol"] }} </td>
+            <td> {{ row["shares"]|abs}} </td>
+            <td> {{ row["price"]|round(3) }}  </td>
+            <td> {{ row["date"] }} </td>
+            <td> {{row["time"]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
