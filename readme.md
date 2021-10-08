@@ -13,7 +13,7 @@ You will have to get your own API code from the [Investor Exchange](https://iexc
 ## Self-Reflection
 As a beginner's work, there is a great deal of unnecessary repetition in this program.
 
-Commenting style is also inconsistent, as I was experimenting with multiple styles.  
+Commenting style is inconsistent due to experimentation.  
 
 # Re: Specifications
 A "personal touch" was requested. My personal touches include:
